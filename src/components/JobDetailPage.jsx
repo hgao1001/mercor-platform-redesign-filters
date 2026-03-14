@@ -125,9 +125,13 @@ export default function JobDetailPage() {
           {/* Posted by */}
           <div className="flex items-center justify-between py-4 border-t border-b border-surface-200 mb-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-surface-900 flex items-center justify-center">
-                <span className="text-white text-lg font-bold font-display">M</span>
-              </div>
+              <img
+                src="/mercor-icon.png"
+                alt={job.company}
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full object-contain ring-1 ring-surface-200"
+              />
               <div>
                 <p className="text-sm font-semibold text-surface-900">Posted by {job.company}</p>
                 <p className="text-xs text-surface-400">{job.companyUrl}</p>

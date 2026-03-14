@@ -164,6 +164,14 @@ export default function JobDetailPage() {
               )}
             </button>
 
+            {!appOpen && (
+              <div className="px-6 pb-4">
+                <p className="text-sm text-surface-400 leading-relaxed">
+                  {job.applicationSteps.map((s) => s.name).join(' | ')}
+                </p>
+              </div>
+            )}
+
             {appOpen && (
               <div className="px-6 pb-6">
                 <div className="flex items-center justify-between text-sm mb-2.5">

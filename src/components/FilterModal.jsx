@@ -325,7 +325,7 @@ export default function FilterModal({ isOpen, onClose, onApply, totalResults = 2
             />
           </FilterSection>
 
-          <FilterSection title="Application Steps Remaining" count={filters.stepsRemaining.length} defaultOpen={false}>
+          <FilterSection title="Application Steps Remaining" count={filters.stepsRemaining.length} defaultOpen={true}>
             <CheckboxGroup
               options={STEPS_OPTIONS}
               selected={filters.stepsRemaining}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Sparkles, CheckCircle, Zap, Users, TrendingUp, ArrowUpRight } from 'lucide-react'
 
 const badgeConfig = {
@@ -41,8 +42,9 @@ export default function JobCard({ job, index }) {
   const BadgeIcon = badge?.icon
 
   return (
-    <article
-      className="group relative bg-white rounded-lg border-2 border-surface-200/80 p-5 flex flex-col justify-between cursor-pointer animate-fade-in-up transition-[border-color,background-color] duration-200 hover:border-primary-500 hover:bg-primary-500/[0.06]"
+    <Link
+      to={`/jobs/${job.id}`}
+      className="group relative bg-white rounded-lg border-2 border-surface-200/80 p-5 flex flex-col justify-between animate-fade-in-up transition-[border-color,background-color] duration-200 hover:border-primary-500 hover:bg-primary-500/[0.06] no-underline"
       style={{ animationDelay: `${(index % 10) * 0.04}s` }}
     >
       <div>
@@ -116,6 +118,6 @@ export default function JobCard({ job, index }) {
           </span>
         )}
       </div>
-    </article>
+    </Link>
   )
 }

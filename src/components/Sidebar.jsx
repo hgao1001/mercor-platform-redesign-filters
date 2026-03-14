@@ -1,11 +1,12 @@
+import { NavLink } from 'react-router-dom'
 import { Search, Home, Users, DollarSign, User, Bell, Settings } from 'lucide-react'
 
 const navItems = [
-  { icon: Search, label: 'Explore', active: true },
-  { icon: Home, label: 'Home' },
-  { icon: Users, label: 'Referrals' },
-  { icon: DollarSign, label: 'Earnings' },
-  { icon: User, label: 'Profile' },
+  { icon: Search, label: 'Explore', to: '/' },
+  { icon: Home, label: 'Home', to: '#' },
+  { icon: Users, label: 'Referrals', to: '#' },
+  { icon: DollarSign, label: 'Earnings', to: '#' },
+  { icon: User, label: 'Profile', to: '#' },
 ]
 
 export default function Sidebar() {
@@ -24,25 +25,32 @@ export default function Sidebar() {
 
       {/* Nav items */}
       <nav className="flex flex-col items-center gap-4 flex-1">
-        {navItems.map(({ icon: Icon, label, active }) => (
-          <button
+        {navItems.map(({ icon: Icon, label, to }) => (
+          <NavLink
             key={label}
-            className={`group relative flex flex-col items-center justify-center w-14 py-1.5 rounded-xl transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none ${
-              active
-                ? 'text-primary-600'
-                : 'text-surface-400 hover:text-surface-700'
-            }`}
+            to={to}
+            end
+            className={({ isActive }) =>
+              `group relative flex flex-col items-center justify-center w-14 py-1.5 rounded-xl transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none ${
+                isActive && to !== '#'
+                  ? 'text-primary-600'
+                  : 'text-surface-400 hover:text-surface-700'
+              }`
+            }
             aria-label={label}
-            aria-current={active ? 'page' : undefined}
           >
-            <Icon size={20} strokeWidth={active ? 2.2 : 1.8} aria-hidden="true" />
-            <span className={`text-[10px] mt-0.5 leading-tight ${active ? 'font-semibold' : 'font-medium'}`}>
-              {label}
-            </span>
-            {active && (
-              <span className="absolute -left-[18px] w-[3px] h-5 bg-primary-600 rounded-r-full top-1/2 -translate-y-1/2" />
+            {({ isActive }) => (
+              <>
+                <Icon size={20} strokeWidth={isActive && to !== '#' ? 2.2 : 1.8} aria-hidden="true" />
+                <span className={`text-[10px] mt-0.5 leading-tight ${isActive && to !== '#' ? 'font-semibold' : 'font-medium'}`}>
+                  {label}
+                </span>
+                {isActive && to !== '#' && (
+                  <span className="absolute -left-[18px] w-[3px] h-5 bg-primary-600 rounded-r-full top-1/2 -translate-y-1/2" />
+                )}
+              </>
             )}
-          </button>
+          </NavLink>
         ))}
       </nav>
 

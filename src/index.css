@@ -151,6 +151,11 @@ body {
   background: var(--color-surface-400);
 }
 
+/* ── Hide scrollbar for horizontal scroll ── */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Range slider custom styling ── */
 input[type="range"] {
   -webkit-appearance: none;

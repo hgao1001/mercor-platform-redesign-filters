@@ -109,6 +109,14 @@ function FilterSection({ title, defaultOpen = true, count = 0, children }) {
 
 /* ─── Checkbox group ─── */
 function CheckboxGroup({ options, selected, onChange }) {
+  const toggle = (opt) => {
+    if (selected.includes(opt)) {
+      onChange(selected.filter((s) => s !== opt))
+    } else {
+      onChange([...selected, opt])
+    }
+  }
+
   return (
     <div className="flex flex-col gap-2">
       {options.map((opt) => {
@@ -116,6 +124,7 @@ function CheckboxGroup({ options, selected, onChange }) {
         return (
           <label
             key={opt}
+            onClick={() => toggle(opt)}
             className="flex items-center gap-3 cursor-pointer group py-0.5"
           >
             <span className={`w-[18px] h-[18px] rounded-md border-2 flex items-center justify-center transition-[border-color,background-color] duration-200 ${

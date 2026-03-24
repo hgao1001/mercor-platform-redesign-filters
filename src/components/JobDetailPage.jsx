@@ -29,7 +29,7 @@ export default function JobDetailPage() {
     return (
       <div className="max-w-[960px] mx-auto px-6 lg:px-10 py-8">
         <Link
-          to="/"
+          to="/explore"
           className="inline-flex items-center gap-1.5 text-sm text-primary-600 hover:text-primary-700 transition-colors duration-200 mb-8"
         >
           <ArrowLeft size={15} />
@@ -65,7 +65,7 @@ export default function JobDetailPage() {
     <div className="max-w-[1120px] mx-auto px-6 lg:px-10 py-8 animate-fade-in-up">
       {/* ← View all opportunities */}
       <Link
-        to="/"
+        to="/explore"
         className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors duration-200 mb-7 group"
       >
         <ArrowLeft size={15} className="transition-transform duration-200 group-hover:-translate-x-0.5" />
@@ -391,9 +391,13 @@ export default function JobDetailPage() {
                 <Pencil size={14} />
               </button>
             </div>
-            <button className="w-full py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-all duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderRadius: '8px' }}>
+            <Link
+              to={`/jobs/${job.id}/interview`}
+              className="w-full py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-all duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none block text-center no-underline"
+              style={{ borderRadius: '8px' }}
+            >
               Continue Application
-            </button>
+            </Link>
           </div>
 
           {job.reward && (

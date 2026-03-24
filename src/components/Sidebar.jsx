@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { Search, Home, Users, DollarSign, User, Bell, Settings } from 'lucide-react'
 
 const navItems = [
-  { icon: Search, label: 'Explore', to: '/' },
+  { icon: Search, label: 'Explore', to: '/explore' },
   { icon: Home, label: 'Home', to: '#' },
   { icon: Users, label: 'Referrals', to: '#' },
   { icon: DollarSign, label: 'Earnings', to: '#' },

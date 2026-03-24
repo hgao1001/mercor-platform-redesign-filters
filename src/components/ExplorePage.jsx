@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Search, SlidersHorizontal, Gift, ChevronDown, Zap,
   ChevronLeft, ChevronRight, MoreHorizontal, RotateCcw,
+  Mic, Check,
 } from 'lucide-react'
 import JobCard from './JobCard'
 import FilterModal from './FilterModal'
@@ -41,6 +43,9 @@ export default function ExplorePage() {
 
   return (
     <div className="max-w-[1440px] mx-auto px-6 lg:px-10 py-8">
+      {/* Welcome back module */}
+      <WelcomeBack />
+
       {/* Title */}
       <h1 className="font-display font-bold text-2xl text-surface-900 tracking-tight text-wrap-balance mb-4">
         Explore opportunities
@@ -199,5 +204,95 @@ function FilterChip({ label, onRemove }) {
         </svg>
       </button>
     </span>
+  )
+}
+
+/* ─── Welcome back module ─── */
+function WelcomeBack() {
+  const job = JOBS[0]
+  const steps = job.applicationSteps
+  const completedCount = steps.filter((s) => s.status === 'completed').length
+  const remainingCount = steps.length - completedCount
+  const currentStep = steps.find((s) => s.status === 'not_done')
+
+  return (
+    <div className="mb-8">
+      <h2 className="font-display font-bold text-xl text-surface-900 tracking-tight mb-1">
+        Welcome back, Kevin
+      </h2>
+      <p className="text-sm text-surface-500 mb-5">Pick up where you left off.</p>
+
+      <div className="bg-white rounded-2xl border border-surface-200 p-6" style={{ borderRadius: '14px' }}>
+        {/* Job header */}
+        <div className="flex items-start justify-between gap-4 mb-5">
+          <div>
+            <h3 className="font-display font-semibold text-base text-surface-900 mb-1">{job.fullTitle}</h3>
+            <p className="text-sm text-surface-400">
+              {job.salary} &middot; {job.location} &middot; Posted {job.posted}
+            </p>
+          </div>
+          <span className="shrink-0 inline-flex items-center px-3 py-1 text-xs font-semibold text-primary-600 border border-primary-200 bg-primary-50 rounded-full" style={{ borderRadius: '9999px' }}>
+            {remainingCount} step{remainingCount !== 1 ? 's' : ''} left
+          </span>
+        </div>
+
+        {/* Step progress bar */}
+        <div className="grid gap-1 mb-2" style={{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }}>
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              className={`h-[5px] rounded-full ${
+                step.status === 'completed'
+                  ? 'bg-primary-600'
+                  : 'bg-surface-200'
+              }`}
+              style={{ borderRadius: '9999px' }}
+            />
+          ))}
+        </div>
+
+        {/* Step labels */}
+        <div className="grid gap-1 mb-5" style={{ gridTemplateColumns: `repeat(${steps.length}, 1fr)` }}>
+          {steps.map((step, i) => (
+            <div key={i} className="flex items-center justify-center gap-1 min-w-0">
+              <span className={`text-[11px] truncate ${
+                step.status === 'completed'
+                  ? 'text-surface-400'
+                  : step === currentStep
+                    ? 'text-primary-600 font-semibold'
+                    : 'text-surface-400'
+              }`}>
+                {step.name}
+              </span>
+              {step.status === 'completed' && (
+                <Check size={10} className="text-surface-400 shrink-0" strokeWidth={3} />
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Interview prompt */}
+        {currentStep && (
+          <div className="flex items-center justify-between gap-4 bg-surface-50 rounded-xl px-5 py-4" style={{ borderRadius: '10px' }}>
+            <div className="flex items-center gap-3.5 min-w-0">
+              <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center shrink-0" style={{ borderRadius: '10px' }}>
+                <Mic size={18} className="text-primary-500" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-surface-900 mb-0.5">Complete your AI interview</p>
+                <p className="text-xs text-surface-400">~13 minutes &middot; Conversational format &middot; 3 retakes available</p>
+              </div>
+            </div>
+            <Link
+              to={`/jobs/${job.id}/interview`}
+              className="shrink-0 px-5 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-all duration-200 active:scale-[0.98] no-underline focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none"
+              style={{ borderRadius: '8px' }}
+            >
+              Continue
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }

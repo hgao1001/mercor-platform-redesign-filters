@@ -202,9 +202,13 @@ function SearchableMultiSelect({ options, selected, onChange, placeholder }) {
 }
 
 /* ═══════════════ MAIN MODAL ═══════════════ */
-export default function FilterModal({ isOpen, onClose, onApply, totalResults = 247 }) {
+export default function FilterModal({ isOpen, onClose, onApply, totalResults = 247, externalFilters }) {
   const [filters, setFilters] = useState(INITIAL_FILTERS)
   const backdropRef = useRef(null)
+
+  useEffect(() => {
+    if (externalFilters) setFilters(externalFilters)
+  }, [externalFilters])
   const activeCount = countActive(filters)
 
   const resultCount = Math.max(1, totalResults - activeCount * 28)

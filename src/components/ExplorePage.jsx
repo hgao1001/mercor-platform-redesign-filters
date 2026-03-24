@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   Search, SlidersHorizontal, Gift, ChevronDown, Zap,
-  ChevronLeft, ChevronRight, MoreHorizontal,
+  ChevronLeft, ChevronRight, MoreHorizontal, RotateCcw,
 } from 'lucide-react'
 import JobCard from './JobCard'
 import FilterModal from './FilterModal'
@@ -110,6 +110,13 @@ export default function ExplorePage() {
               />
             ))
           )}
+          <button
+            onClick={() => setFilters(INITIAL_FILTERS)}
+            className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-surface-500 hover:text-primary-600 transition-colors"
+          >
+            <RotateCcw size={12} aria-hidden="true" />
+            Clear all
+          </button>
         </div>
       )}
 
@@ -171,6 +178,7 @@ export default function ExplorePage() {
         onClose={() => setFilterOpen(false)}
         onApply={handleApplyFilters}
         totalResults={TOTAL_RESULTS}
+        externalFilters={filters}
       />
     </div>
   )

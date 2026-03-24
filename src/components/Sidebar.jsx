@@ -33,10 +33,11 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `group relative flex flex-col items-center justify-center w-14 py-1.5 rounded-xl transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none ${
                 isActive && to !== '#'
-                  ? 'text-primary-600'
-                  : 'text-surface-400 hover:text-surface-700'
+                  ? 'text-primary-600 bg-surface-100'
+                  : 'text-surface-400 hover:text-surface-700 hover:bg-surface-100'
               }`
             }
+            style={{ borderRadius: '12px' }}
             aria-label={label}
           >
             {({ isActive }) => (
@@ -46,7 +47,7 @@ export default function Sidebar() {
                   {label}
                 </span>
                 {isActive && to !== '#' && (
-                  <span className="absolute -left-[18px] w-[3px] h-5 bg-primary-600 rounded-r-full top-1/2 -translate-y-1/2" />
+                  <span className="absolute -left-[18px] w-[3px] h-5 bg-primary-600 rounded-r-full top-1/2 -translate-y-1/2" style={{ borderTopRightRadius: '9999px', borderBottomRightRadius: '9999px' }} />
                 )}
               </>
             )}
@@ -56,15 +57,15 @@ export default function Sidebar() {
 
       {/* Bottom actions */}
       <div className="flex flex-col items-center gap-1 mt-auto">
-        <button className="relative w-11 h-11 rounded-xl flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-100 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" aria-label="Notifications">
+        <button className="relative w-11 h-11 rounded-xl flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-100 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderRadius: '12px' }} aria-label="Notifications">
           <Bell size={20} strokeWidth={1.8} aria-hidden="true" />
-          <span className="absolute top-2 right-2 w-2 h-2 bg-pop-rose rounded-full ring-2 ring-white" />
+          <span className="absolute top-2 right-2 w-2 h-2 bg-pop-rose rounded-full ring-2 ring-white" style={{ borderRadius: '9999px' }} />
         </button>
-        <button className="w-11 h-11 rounded-xl flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-100 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" aria-label="Settings">
+        <button className="w-11 h-11 rounded-xl flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-100 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderRadius: '12px' }} aria-label="Settings">
           <Settings size={20} strokeWidth={1.8} aria-hidden="true" />
         </button>
         {/* Avatar */}
-        <button className="mt-2 w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center ring-2 ring-surface-200 hover:ring-primary-300 transition-colors focus-visible:ring-primary-500 outline-none" aria-label="Profile">
+        <button className="mt-2 w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center ring-2 ring-surface-200 hover:ring-primary-300 transition-colors focus-visible:ring-primary-500 outline-none" style={{ borderRadius: '9999px' }} aria-label="Profile">
           <span className="text-white text-xs font-semibold">K</span>
         </button>
       </div>

@@ -16,8 +16,8 @@ export default function Navbar() {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group focus-visible:focus-ring rounded-lg">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-700 shadow-sm group-hover:bg-primary-600 transition-colors duration-200">
+          <a href="#" className="flex items-center gap-2.5 group focus-visible:focus-ring rounded-lg" style={{ borderRadius: '8px' }}>
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-700 shadow-sm group-hover:bg-primary-600 transition-colors duration-200" style={{ borderRadius: '8px' }}>
               <Sparkles className="h-5 w-5 text-white" strokeWidth={2} />
             </div>
             <span className="text-xl font-bold tracking-tight text-surface-900">
@@ -31,7 +31,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-surface-600 rounded-lg hover:text-surface-900 hover:bg-surface-100 transition-colors duration-200 focus-visible:focus-ring"
+                className="px-4 py-2 text-sm font-medium text-surface-600 rounded-lg hover:text-surface-900 hover:bg-surface-100 transition-colors duration-200 focus-visible:focus-ring" style={{ borderRadius: '8px' }}
               >
                 {link.label}
               </a>
@@ -42,13 +42,13 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#"
-              className="px-4 py-2 text-sm font-medium text-surface-700 hover:text-surface-900 transition-colors rounded-lg focus-visible:focus-ring"
+              className="px-4 py-2 text-sm font-medium text-surface-700 hover:text-surface-900 transition-colors rounded-lg focus-visible:focus-ring" style={{ borderRadius: '8px' }}
             >
               Sign In
             </a>
             <a
               href="#"
-              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-primary-700 rounded-lg hover:bg-primary-600 shadow-sm hover:shadow-md transition-[background-color,box-shadow] duration-200 active:scale-[0.98] focus-visible:focus-ring"
+              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-primary-700 rounded-lg hover:bg-primary-600 shadow-sm hover:shadow-md transition-[background-color,box-shadow] duration-200 active:scale-[0.98] focus-visible:focus-ring" style={{ borderRadius: '8px' }}
             >
               Get Started
             </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
           {/* Mobile toggle — h-11 w-11 = 44px touch target */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden flex items-center justify-center h-11 w-11 rounded-lg text-surface-600 hover:bg-surface-100 transition-colors focus-visible:focus-ring"
+            className="md:hidden flex items-center justify-center h-11 w-11 rounded-lg text-surface-600 hover:bg-surface-100 transition-colors focus-visible:focus-ring" style={{ borderRadius: '8px' }}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -73,7 +73,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-base font-medium text-surface-700 rounded-lg hover:bg-surface-100 transition-colors focus-visible:focus-ring"
+                  className="px-4 py-3 text-base font-medium text-surface-700 rounded-lg hover:bg-surface-100 transition-colors focus-visible:focus-ring" style={{ borderRadius: '8px' }}
                 >
                   {link.label}
                 </a>
@@ -81,13 +81,13 @@ export default function Navbar() {
               <hr className="my-2 border-surface-200" />
               <a
                 href="#"
-                className="px-4 py-3 text-base font-medium text-surface-700 rounded-lg hover:bg-surface-100 focus-visible:focus-ring"
+                className="px-4 py-3 text-base font-medium text-surface-700 rounded-lg hover:bg-surface-100 focus-visible:focus-ring" style={{ borderRadius: '8px' }}
               >
                 Sign In
               </a>
               <a
                 href="#"
-                className="mx-4 mt-1 inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-primary-700 rounded-lg hover:bg-primary-600 shadow-sm transition-colors focus-visible:focus-ring"
+                className="mx-4 mt-1 inline-flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-primary-700 rounded-lg hover:bg-primary-600 shadow-sm transition-colors focus-visible:focus-ring" style={{ borderRadius: '8px' }}
               >
                 Get Started
               </a>

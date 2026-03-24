@@ -44,7 +44,7 @@ export default function JobCard({ job, index }) {
   return (
     <Link
       to={`/jobs/${job.id}`}
-      className="group relative bg-white rounded-lg border-2 border-surface-200/80 p-5 flex flex-col justify-between animate-fade-in-up transition-[border-color,background-color] duration-200 hover:border-primary-500 hover:bg-primary-500/[0.06] no-underline"
+      className="group relative bg-white rounded-lg border-2 border-surface-200/80 p-5 flex flex-col justify-between animate-fade-in-up transition-[border-color,background-color] duration-200 hover:border-primary-500 hover:bg-primary-500/[0.06] no-underline" style={{ borderRadius: '8px' }}
       style={{ animationDelay: `${(index % 10) * 0.04}s` }}
     >
       <div>
@@ -66,7 +66,7 @@ export default function JobCard({ job, index }) {
 
         {/* Badge */}
         {badge && (
-          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full border ${badge.bg} ${badge.text} ${badge.border}`}>
+          <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full border ${badge.bg} ${badge.text} ${badge.border}`} style={{ borderRadius: '9999px' }}>
             <BadgeIcon size={12} strokeWidth={2.2} aria-hidden="true" />
             {job.badge}
           </span>
@@ -74,7 +74,7 @@ export default function JobCard({ job, index }) {
 
         {/* W2 indicator */}
         {job.w2 && (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-50 text-blue-700 border border-blue-200" style={{ borderRadius: '9999px' }}>
             W2
             <span className="font-normal text-blue-600">Contingent Role</span>
           </span>
@@ -90,7 +90,7 @@ export default function JobCard({ job, index }) {
               {Array.from({ length: Math.min(job.avatars, 3) }).map((_, i) => (
                 <div
                   key={i}
-                  className={`w-6 h-6 rounded-full ${avatarColors[(index * 3 + i) % avatarColors.length]} ring-2 ring-white flex items-center justify-center`}
+                  className={`w-6 h-6 rounded-full ${avatarColors[(index * 3 + i) % avatarColors.length]} ring-2 ring-white flex items-center justify-center`} style={{ borderRadius: '9999px' }}
                 >
                   <span className="text-white text-[9px] font-bold">
                     {String.fromCharCode(65 + ((index * 3 + i) % 26))}

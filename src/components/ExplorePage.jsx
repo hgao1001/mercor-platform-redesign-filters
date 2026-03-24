@@ -60,7 +60,7 @@ export default function ExplorePage() {
           <SlidersHorizontal size={16} strokeWidth={2} aria-hidden="true" />
           <span className="font-display font-semibold">Filters</span>
           {activeFilterCount > 0 && (
-            <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[11px] font-bold bg-primary-600 text-white rounded-full">
+            <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[11px] font-bold bg-primary-600 text-white rounded-full" style={{ borderRadius: '9999px' }}>
               {activeFilterCount}
             </span>
           )}
@@ -76,7 +76,7 @@ export default function ExplorePage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search"
-            className="w-full pl-10 pr-4 py-2.5 text-sm bg-surface-50 border border-surface-200 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/30 focus-visible:border-primary-400 focus-visible:bg-white transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-surface-400"
+            className="w-full pl-10 pr-4 py-2.5 text-sm bg-surface-50 border border-surface-200 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/30 focus-visible:border-primary-400 focus-visible:bg-white transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-surface-400" style={{ borderRadius: '8px' }}
           />
         </div>
 
@@ -84,7 +84,7 @@ export default function ExplorePage() {
         <div className="flex-1" />
 
         {/* Sort dropdown */}
-        <button className="flex items-center gap-1.5 px-3.5 py-2.5 text-sm font-medium text-surface-600 bg-white border border-surface-200 rounded-lg hover:border-surface-300 transition-[border-color] duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none shrink-0">
+        <button className="flex items-center gap-1.5 px-3.5 py-2.5 text-sm font-medium text-surface-600 bg-white border border-surface-200 rounded-lg hover:border-surface-300 transition-[border-color] duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none shrink-0" style={{ borderRadius: '8px' }}>
           <Zap size={14} className="text-primary-500" aria-hidden="true" />
           <span className="max-sm:hidden">{sortBy}</span>
           <span className="sm:hidden">Sort</span>
@@ -92,7 +92,7 @@ export default function ExplorePage() {
         </button>
 
         {/* Refer & earn */}
-        <button className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-colors duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none shrink-0">
+        <button className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-colors duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none shrink-0" style={{ borderRadius: '8px' }}>
           <Gift size={15} aria-hidden="true" />
           <span className="max-sm:hidden">Refer & earn</span>
         </button>
@@ -125,7 +125,7 @@ export default function ExplorePage() {
         <button
           onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
-          className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-surface-500 hover:text-surface-700 hover:bg-surface-100 rounded-lg transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none"
+          className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-surface-500 hover:text-surface-700 hover:bg-surface-100 rounded-lg transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderRadius: '8px' }}
         >
           <ChevronLeft size={16} />
           <span className="max-sm:hidden">Previous</span>
@@ -147,6 +147,7 @@ export default function ExplorePage() {
                     ? 'bg-primary-600 text-white shadow-sm'
                     : 'text-surface-600 hover:bg-surface-100 hover:text-surface-900'
                 }`}
+                style={{ borderRadius: '8px' }}
               >
                 {page}
               </button>
@@ -157,7 +158,7 @@ export default function ExplorePage() {
         <button
           onClick={() => setCurrentPage(Math.min(TOTAL_PAGES, currentPage + 1))}
           disabled={currentPage === TOTAL_PAGES}
-          className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-surface-500 hover:text-surface-700 hover:bg-surface-100 rounded-lg transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none"
+          className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-surface-500 hover:text-surface-700 hover:bg-surface-100 rounded-lg transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderRadius: '8px' }}
         >
           <span className="max-sm:hidden">Next</span>
           <ChevronRight size={16} />
@@ -178,11 +179,11 @@ export default function ExplorePage() {
 /* ─── Small filter chip for active filters ─── */
 function FilterChip({ label, onRemove }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium bg-primary-50 text-primary-700 rounded-lg border border-primary-200 animate-scale-in">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium bg-primary-50 text-primary-700 rounded-lg border border-primary-200 animate-scale-in" style={{ borderRadius: '8px' }}>
       {label}
       <button
         onClick={onRemove}
-        className="hover:bg-primary-100 rounded-sm p-0.5 transition-colors"
+        className="hover:bg-primary-100 rounded-sm p-0.5 transition-colors" style={{ borderRadius: '2px' }}
       >
         <span className="sr-only">Remove {label} filter</span>
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">

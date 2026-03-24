@@ -81,13 +81,13 @@ function FilterSection({ title, defaultOpen = true, count = 0, children }) {
     <div className="border-b border-surface-100 last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-4 px-1 text-left group focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none rounded-lg"
+        className="w-full flex items-center justify-between py-4 px-1 text-left group focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none rounded-lg" style={{ borderRadius: '8px' }}
       >
         <span className="font-display font-semibold text-sm text-surface-800 flex items-center gap-2.5">
           {Icon && <Icon size={15} className="text-surface-400" strokeWidth={1.8} aria-hidden="true" />}
           {title}
           {count > 0 && (
-            <span className="inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-primary-600 text-white rounded-full">
+            <span className="inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-primary-600 text-white rounded-full" style={{ borderRadius: '9999px' }}>
               {count}
             </span>
           )}
@@ -122,7 +122,7 @@ function CheckboxGroup({ options, selected, onChange }) {
               checked
                 ? 'border-primary-600 bg-primary-600'
                 : 'border-surface-300 group-hover:border-surface-400'
-            }`}>
+            }`} style={{ borderRadius: '6px' }}>
               {checked && <Check size={12} className="text-white" strokeWidth={3} />}
             </span>
             <span className="text-sm text-surface-700 group-hover:text-surface-900 transition-colors">
@@ -149,12 +149,12 @@ function SearchableMultiSelect({ options, selected, onChange, placeholder }) {
           {selected.map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-primary-50 text-primary-700 rounded-lg border border-primary-200"
+              className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-primary-50 text-primary-700 rounded-lg border border-primary-200" style={{ borderRadius: '8px' }}
             >
               {item}
               <button
                 onClick={() => onChange(selected.filter((s) => s !== item))}
-                className="hover:bg-primary-100 rounded-sm p-0.5 transition-colors"
+                className="hover:bg-primary-100 rounded-sm p-0.5 transition-colors" style={{ borderRadius: '2px' }}
                 aria-label={`Remove ${item}`}
               >
                 <X size={10} strokeWidth={3} />
@@ -172,11 +172,11 @@ function SearchableMultiSelect({ options, selected, onChange, placeholder }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={placeholder}
-          className="w-full pl-8 pr-3 py-2.5 text-sm bg-surface-50 border border-surface-200 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/20 focus-visible:border-primary-400 transition-[border-color,box-shadow] duration-200"
+          className="w-full pl-8 pr-3 py-2.5 text-sm bg-surface-50 border border-surface-200 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/20 focus-visible:border-primary-400 transition-[border-color,box-shadow] duration-200" style={{ borderRadius: '12px' }}
         />
       </div>
       {query && filtered.length > 0 && (
-        <div className="border border-surface-200 rounded-xl bg-white max-h-32 overflow-y-auto custom-scrollbar">
+        <div className="border border-surface-200 rounded-xl bg-white max-h-32 overflow-y-auto custom-scrollbar" style={{ borderRadius: '12px' }}>
           {filtered.map((opt) => (
             <button
               key={opt}
@@ -241,13 +241,14 @@ export default function FilterModal({ isOpen, onClose, onApply, totalResults = 2
           max-md:fixed max-md:inset-x-0 max-md:bottom-0 max-md:rounded-t-3xl max-md:max-h-[92vh] max-md:animate-slide-up
           md:rounded-2xl md:max-w-[540px] md:w-full md:max-h-[85vh] md:animate-scale-in md:shadow-modal
         "
+        style={{ borderRadius: '16px' }}
         role="dialog"
         aria-modal="true"
         aria-label="Filter opportunities"
       >
         {/* Mobile drag handle */}
         <div className="md:hidden flex justify-center pt-3 pb-1">
-          <div className="w-10 h-1 bg-surface-300 rounded-full" />
+          <div className="w-10 h-1 bg-surface-300 rounded-full" style={{ borderRadius: '9999px' }} />
         </div>
 
         {/* Header */}
@@ -265,7 +266,7 @@ export default function FilterModal({ isOpen, onClose, onApply, totalResults = 2
             )}
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-surface-400 hover:bg-surface-100 hover:text-surface-600 transition-colors"
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-surface-400 hover:bg-surface-100 hover:text-surface-600 transition-colors" style={{ borderRadius: '8px' }}
               aria-label="Close filters"
             >
               <X size={18} />
@@ -335,10 +336,10 @@ export default function FilterModal({ isOpen, onClose, onApply, totalResults = 2
         </div>
 
         {/* Footer CTA */}
-        <div className="px-6 py-4 border-t border-surface-100 bg-white/80 backdrop-blur-sm rounded-b-2xl max-md:rounded-b-none max-md:pb-8">
+        <div className="px-6 py-4 border-t border-surface-100 bg-white/80 backdrop-blur-sm rounded-b-2xl max-md:rounded-b-none max-md:pb-8" style={{ borderBottomLeftRadius: '16px', borderBottomRightRadius: '16px' }}>
           <button
             onClick={() => { onApply(filters); onClose() }}
-            className="w-full py-3 px-6 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-display font-semibold text-sm rounded-xl transition-colors duration-200 active:scale-[0.98]"
+            className="w-full py-3 px-6 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white font-display font-semibold text-sm rounded-xl transition-colors duration-200 active:scale-[0.98]" style={{ borderRadius: '12px' }}
           >
             Show {resultCount} results
           </button>

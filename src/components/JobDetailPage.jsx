@@ -105,7 +105,7 @@ export default function JobDetailPage() {
                 {Array.from({ length: Math.min(job.avatars, 3) }).map((_, i) => (
                   <div
                     key={i}
-                    className={`w-6 h-6 rounded-full ${avatarColors[i % avatarColors.length]} ring-2 ring-white flex items-center justify-center`}
+                    className={`w-6 h-6 rounded-full ${avatarColors[i % avatarColors.length]} ring-2 ring-white flex items-center justify-center`} style={{ borderRadius: '9999px' }}
                   >
                     <span className="text-white text-[9px] font-bold">
                       {String.fromCharCode(65 + i)}
@@ -130,7 +130,7 @@ export default function JobDetailPage() {
                 alt={job.company}
                 width={40}
                 height={40}
-                className="w-10 h-10 rounded-full object-contain ring-1 ring-surface-200"
+                className="w-10 h-10 rounded-full object-contain ring-1 ring-surface-200" style={{ borderRadius: '9999px' }}
               />
               <div>
                 <p className="text-sm font-semibold text-surface-900">Posted by {job.company}</p>
@@ -144,6 +144,7 @@ export default function JobDetailPage() {
                   ? 'bg-primary-50 border-primary-200 text-primary-600'
                   : 'border-surface-200 text-surface-400 hover:text-surface-600 hover:bg-surface-50'
               }`}
+              style={{ borderRadius: '8px' }}
               aria-label={bookmarked ? 'Unsave job' : 'Save job'}
             >
               <Bookmark size={16} fill={bookmarked ? 'currentColor' : 'none'} />
@@ -151,10 +152,10 @@ export default function JobDetailPage() {
           </div>
 
           {/* Application progress */}
-          <div className="bg-white rounded-xl border border-surface-200 mb-8">
+          <div className="bg-white rounded-xl border border-surface-200 mb-8" style={{ borderRadius: '12px' }}>
             <button
               onClick={() => setAppOpen(!appOpen)}
-              className="w-full flex items-center justify-between px-6 py-4 text-left outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset rounded-xl"
+              className="w-full flex items-center justify-between px-6 py-4 text-left outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset rounded-xl" style={{ borderRadius: '12px' }}
             >
               <span className="font-display font-semibold text-surface-900">Application</span>
               {appOpen ? (
@@ -181,9 +182,9 @@ export default function JobDetailPage() {
                   <span className="text-surface-500 font-medium">{progressPercent}%</span>
                 </div>
 
-                <div className="h-2 bg-surface-100 rounded-full overflow-hidden mb-5">
+                <div className="h-2 bg-surface-100 rounded-full overflow-hidden mb-5" style={{ borderRadius: '9999px' }}>
                   <div
-                    className="h-full bg-primary-600 rounded-full transition-all duration-500 ease-out"
+                    className="h-full bg-primary-600 rounded-full transition-all duration-500 ease-out" style={{ borderRadius: '9999px' }}
                     style={{ width: `${progressPercent}%` }}
                   />
                 </div>
@@ -197,7 +198,7 @@ export default function JobDetailPage() {
                       <div className="flex items-center gap-3 min-w-0">
                         <span className="text-sm text-surface-800 font-medium">{step.name}</span>
                         {step.core && (
-                          <span className="inline-flex px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-surface-100 text-surface-500 rounded">
+                          <span className="inline-flex px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-surface-100 text-surface-500 rounded" style={{ borderRadius: '4px' }}>
                             Core
                           </span>
                         )}
@@ -208,7 +209,7 @@ export default function JobDetailPage() {
                             <span className="text-xs text-surface-400">
                               {step.date ? `Completed on ${step.date}` : 'Completed'}
                             </span>
-                            <span className="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center">
+                            <span className="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center" style={{ borderRadius: '9999px' }}>
                               <Check size={12} className="text-white" strokeWidth={3} />
                             </span>
                           </>
@@ -224,7 +225,7 @@ export default function JobDetailPage() {
                 </div>
 
                 <div className="flex items-start gap-2 mt-4 pt-3 border-t border-surface-100">
-                  <span className="w-4 h-4 rounded-full border border-surface-300 flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="w-4 h-4 rounded-full border border-surface-300 flex items-center justify-center shrink-0 mt-0.5" style={{ borderRadius: '9999px' }}>
                     <span className="text-[9px] text-surface-400 font-bold">i</span>
                   </span>
                   <p className="text-xs text-surface-400 leading-relaxed">
@@ -264,7 +265,7 @@ export default function JobDetailPage() {
               <ul className="space-y-2">
                 {job.responsibilities.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-surface-600 leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-surface-400 shrink-0 mt-[7px]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-surface-400 shrink-0 mt-[7px]" style={{ borderRadius: '9999px' }} />
                     {item}
                   </li>
                 ))}
@@ -277,7 +278,7 @@ export default function JobDetailPage() {
               <ul className="space-y-2">
                 {job.qualifications.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-surface-600 leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-surface-400 shrink-0 mt-[7px]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-surface-400 shrink-0 mt-[7px]" style={{ borderRadius: '9999px' }} />
                     {item}
                   </li>
                 ))}
@@ -316,13 +317,13 @@ export default function JobDetailPage() {
 
                 {/* Referral link input */}
                 <div className="flex items-center gap-0 mb-4">
-                  <div className="flex items-center gap-2.5 flex-1 min-w-0 px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-l-lg border-r-0">
+                  <div className="flex items-center gap-2.5 flex-1 min-w-0 px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-l-lg border-r-0" style={{ borderTopLeftRadius: '8px', borderBottomLeftRadius: '8px' }}>
                     <LinkIcon size={15} className="text-surface-400 shrink-0" aria-hidden="true" />
                     <span className="text-sm text-primary-600 truncate">{referralLink}</span>
                   </div>
                   <button
                     onClick={handleCopy}
-                    className="px-5 py-2.5 text-sm font-medium text-surface-700 bg-white border border-surface-200 rounded-r-lg hover:bg-surface-50 transition-colors duration-200 shrink-0 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none"
+                    className="px-5 py-2.5 text-sm font-medium text-surface-700 bg-white border border-surface-200 rounded-r-lg hover:bg-surface-50 transition-colors duration-200 shrink-0 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderTopRightRadius: '8px', borderBottomRightRadius: '8px' }}
                   >
                     {copied ? 'Copied!' : 'Copy'}
                   </button>
@@ -346,14 +347,14 @@ export default function JobDetailPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => scroll(-1)}
-                  className="w-9 h-9 rounded-full border border-surface-200 flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 outline-none"
+                  className="w-9 h-9 rounded-full border border-surface-200 flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 outline-none" style={{ borderRadius: '9999px' }}
                   aria-label="Scroll left"
                 >
                   <ChevronLeft size={18} />
                 </button>
                 <button
                   onClick={() => scroll(1)}
-                  className="w-9 h-9 rounded-full border border-surface-200 flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 outline-none"
+                  className="w-9 h-9 rounded-full border border-surface-200 flex items-center justify-center text-surface-400 hover:text-surface-700 hover:bg-surface-50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-primary-500 outline-none" style={{ borderRadius: '9999px' }}
                   aria-label="Scroll right"
                 >
                   <ChevronRight size={18} />
@@ -375,29 +376,29 @@ export default function JobDetailPage() {
 
         {/* ─── Right sidebar ─── */}
         <div className="lg:sticky lg:top-8 lg:self-start space-y-4 mb-8 lg:mb-0">
-          <div className="bg-white rounded-xl border border-surface-200 p-5">
+          <div className="bg-white rounded-xl border border-surface-200 p-5" style={{ borderRadius: '12px' }}>
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center ring-2 ring-surface-100">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center ring-2 ring-surface-100" style={{ borderRadius: '9999px' }}>
                   <span className="text-white text-xs font-semibold">K</span>
                 </div>
                 <span className="text-sm font-medium text-surface-800">Kevin Gao</span>
               </div>
               <button
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-surface-400 hover:text-surface-600 hover:bg-surface-50 transition-colors duration-200"
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-surface-400 hover:text-surface-600 hover:bg-surface-50 transition-colors duration-200" style={{ borderRadius: '8px' }}
                 aria-label="Edit profile"
               >
                 <Pencil size={14} />
               </button>
             </div>
-            <button className="w-full py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-all duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none">
+            <button className="w-full py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-all duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none" style={{ borderRadius: '8px' }}>
               Continue Application
             </button>
           </div>
 
           {job.reward && (
-            <div className="bg-white rounded-xl border border-surface-200 p-5">
-              <button className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-surface-600 border border-surface-200 rounded-lg hover:bg-surface-50 hover:border-surface-300 transition-colors duration-200">
+            <div className="bg-white rounded-xl border border-surface-200 p-5" style={{ borderRadius: '12px' }}>
+              <button className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-surface-600 border border-surface-200 rounded-lg hover:bg-surface-50 hover:border-surface-300 transition-colors duration-200" style={{ borderRadius: '8px' }}>
                 <UsersIcon size={15} className="text-primary-500" aria-hidden="true" />
                 Earn up to {job.reward} by referring
               </button>
@@ -414,7 +415,7 @@ function SimilarJobCard({ job, index }) {
   return (
     <Link
       to={`/jobs/${job.id}`}
-      className="group shrink-0 w-[280px] sm:w-[320px] snap-start bg-white rounded-xl border border-surface-200 p-5 flex flex-col justify-between no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary-400 hover:shadow-card-hover"
+      className="group shrink-0 w-[280px] sm:w-[320px] snap-start bg-white rounded-xl border border-surface-200 p-5 flex flex-col justify-between no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary-400 hover:shadow-card-hover" style={{ borderRadius: '12px' }}
     >
       <div>
         <h3 className="font-display font-semibold text-[15px] text-surface-900 leading-snug line-clamp-2 mb-1.5">
@@ -422,7 +423,7 @@ function SimilarJobCard({ job, index }) {
         </h3>
         <p className="text-sm text-surface-500 font-medium mb-3">{job.salary}</p>
         {job.badge && (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-teal-50 text-teal-700 border border-teal-100">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-teal-50 text-teal-700 border border-teal-100" style={{ borderRadius: '9999px' }}>
             <Sparkles size={11} strokeWidth={2.2} aria-hidden="true" />
             {job.badge}
           </span>
@@ -434,7 +435,7 @@ function SimilarJobCard({ job, index }) {
             {Array.from({ length: Math.min(job.avatars, 3) }).map((_, i) => (
               <div
                 key={i}
-                className={`w-6 h-6 rounded-full ${avatarColors[(index * 3 + i) % avatarColors.length]} ring-2 ring-white flex items-center justify-center`}
+                className={`w-6 h-6 rounded-full ${avatarColors[(index * 3 + i) % avatarColors.length]} ring-2 ring-white flex items-center justify-center`} style={{ borderRadius: '9999px' }}
               >
                 <span className="text-white text-[9px] font-bold">
                   {String.fromCharCode(65 + ((index * 3 + i) % 26))}

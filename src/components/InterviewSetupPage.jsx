@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import {
   ArrowLeft, ExternalLink, Check, Circle,
@@ -334,10 +335,10 @@ function PracticeModal({ onClose }) {
     },
   ]
 
-  return (
+  return createPortal(
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-200 ${
-        visible ? 'bg-surface-900/40 backdrop-blur-sm' : 'bg-transparent'
+      className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 transition-all duration-200 ${
+        visible ? 'bg-black/50 backdrop-blur-sm' : 'bg-transparent'
       }`}
       onClick={(e) => { if (e.target === e.currentTarget) handleClose() }}
     >
@@ -416,7 +417,8 @@ function PracticeModal({ onClose }) {
           </p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 

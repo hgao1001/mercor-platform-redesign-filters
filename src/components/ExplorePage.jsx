@@ -97,8 +97,8 @@ export default function ExplorePage() {
         </button>
 
         {/* Refer & earn */}
-        <button className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-primary-600 rounded-lg hover:bg-primary-700 active:bg-primary-800 transition-colors duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none shrink-0" style={{ borderRadius: '8px' }}>
-          <Gift size={15} aria-hidden="true" />
+        <button className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-surface-600 bg-white border border-surface-200 rounded-lg hover:bg-surface-50 hover:border-surface-300 transition-colors duration-200 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 outline-none shrink-0" style={{ borderRadius: '8px' }}>
+          <Gift size={15} className="text-primary-500" aria-hidden="true" />
           <span className="max-sm:hidden">Refer & earn</span>
         </button>
       </div>
@@ -217,23 +217,24 @@ function WelcomeBack() {
 
   return (
     <div className="mb-8">
-      <h2 className="font-display font-bold text-xl text-surface-900 tracking-tight mb-1">
-        Welcome back, Kevin
-      </h2>
-      <p className="text-sm text-surface-500 mb-5">Pick up where you left off.</p>
-
       <div className="bg-white rounded-2xl border border-surface-200 p-6" style={{ borderRadius: '14px' }}>
-        {/* Job header */}
-        <div className="flex items-start justify-between gap-4 mb-5">
+        {/* Welcome header */}
+        <div className="flex items-start justify-between gap-4 mb-4">
           <div>
-            <h3 className="font-display font-semibold text-base text-surface-900 mb-1">{job.fullTitle}</h3>
-            <p className="text-sm text-surface-400">
-              {job.salary} &middot; {job.location} &middot; Posted {job.posted}
-            </p>
+            <h2 className="font-display font-bold text-lg text-surface-900 tracking-tight mb-0.5">Welcome back, Kevin</h2>
+            <p className="text-xs text-surface-400">Pick up where you left off.</p>
           </div>
           <span className="shrink-0 inline-flex items-center px-3 py-1 text-xs font-semibold text-primary-600 border border-primary-200 bg-primary-50 rounded-full" style={{ borderRadius: '9999px' }}>
             {remainingCount} step{remainingCount !== 1 ? 's' : ''} left
           </span>
+        </div>
+
+        {/* Job info */}
+        <div className="mb-4">
+          <h3 className="font-display font-semibold text-[15px] text-surface-900 mb-0.5">{job.fullTitle}</h3>
+          <p className="text-sm text-surface-400">
+            {job.salary} &middot; {job.location} &middot; Posted {job.posted}
+          </p>
         </div>
 
         {/* Step progress bar */}
